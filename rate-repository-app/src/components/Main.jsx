@@ -13,7 +13,7 @@ import MyAppBar from "./MyAppBar";
 
 const Main = () => {
   return (
-    <View style={{ backgroundColor: "lightyellow" }}>
+    <View style={{ backgroundColor: "#e1e4e8" }}>
       <MyAppBar />
       <RepositoryList />
     </View>
