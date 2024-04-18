@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   buttonLikeText: {
     color: "white",
-    backgroundColor: "blue",
+    backgroundColor: theme.colors.fbBlue,
     marginTop: 10,
     padding: 10,
     textAlign: "center",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   button: {
     color: "white",
     paddingLeft: 10,
-    backgroundColor: "blue",
+    backgroundColor: theme.colors.fbBlue,
     marginTop: 10,
     padding: 10,
     textAlign: "center",
@@ -83,19 +83,30 @@ const styles = StyleSheet.create({
     alignItems: "center", // +
     //padding: 8, // +
   },
-
   formText: {
     color: theme.colors.textPrimary,
+    backgroundColor: theme.colors.fbBrightGray,
     paddingLeft: 10,
-    backgroundColor: theme.colors.textSecondary,
     marginTop: 10,
     padding: 10,
-    //textAlign: "center",
     width: "auto",
     height: "auto",
     borderRadius: 10,
     fontSize: theme.fontSizes.subheading,
-    alignItems: "center", // +
+    alignItems: "center",
+  },
+
+  formErrorText: {
+    color: theme.colors.textPrimary,
+    backgroundColor: theme.colors.errorColor,
+    paddingLeft: 10,
+    marginTop: 10,
+    padding: 10,
+    width: "auto",
+    height: "auto",
+    borderRadius: 10,
+    fontSize: theme.fontSizes.subheading,
+    alignItems: "center",
   },
 
   form: {
