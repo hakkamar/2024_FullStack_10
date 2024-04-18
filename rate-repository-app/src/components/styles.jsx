@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     gap: 5,
     flexDirection: "column",
     //justifyContent: "space-between",
-    resize: "both",
+    //resize: "both",
     overflow: "auto",
     backgroundColor: "white",
     //border: "solid",
@@ -54,23 +54,6 @@ const styles = StyleSheet.create({
   itemB: {
     maxWidth: 50,
     flex: 1,
-    //flexDirection: "row",
-    /*
-    title: {
-    backgroundColor: "yellow",
-    marginTop: 10,
-    padding: 20,
-  },,
-    backgroundColor: "white",
-    //backgroundColor: "lightgray",
-    flexDirection: "column",
-    //justifyContent: "space-between",
-    alignItems: "flex-start",
-    flexGrow: 1,
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    */
   },
   buttonLikeText: {
     color: "white",
@@ -82,6 +65,55 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
   },
+  button: {
+    color: "white",
+    paddingLeft: 10,
+    backgroundColor: "blue",
+    marginTop: 10,
+    padding: 10,
+    textAlign: "center",
+    width: "auto",
+    height: "auto",
+    borderRadius: 10,
+    fontSize: theme.fontSizes.subheading,
+    //
+    borderWidth: 1,
+    borderColor: "darkblue",
+    //width: 104, // +
+    alignItems: "center", // +
+    //padding: 8, // +
+  },
+
+  formText: {
+    color: theme.colors.textPrimary,
+    paddingLeft: 10,
+    backgroundColor: theme.colors.textSecondary,
+    marginTop: 10,
+    padding: 10,
+    //textAlign: "center",
+    width: "auto",
+    height: "auto",
+    borderRadius: 10,
+    fontSize: theme.fontSizes.subheading,
+    alignItems: "center", // +
+  },
+
+  form: {
+    flex: 1,
+    display: "flex",
+    gap: 5,
+    flexDirection: "column",
+    overflow: "auto",
+    backgroundColor: "white",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    width: "auto",
+    height: "auto",
+    borderRadius: 10,
+    border: "solid",
+  },
+
   table: {
     marginBottom: 5,
     marginTop: 5,
