@@ -3,6 +3,8 @@ import {
   //StatusBar,
 } from "react-native";
 
+import theme from "../theme";
+
 const styles = StyleSheet.create({
   separator: {
     height: 10,
@@ -11,6 +13,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 10,
+
     //padding: 10,
     //alignItems: "center",
     //backgroundColor: "black",
@@ -18,14 +21,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   container: {
-    padding: 10,
-    alignItems: "center",
-    backgroundColor: "gray",
+    backgroundColor: theme.colors.mainBackground,
     flexGrow: 1,
     flexShrink: 1,
-    //flex: 1,
-    //marginTop: StatusBar.currentHeight || 0,
-    marginTop: 10,
   },
   item: {
     flex: 1,
@@ -92,6 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
+    gap: 5,
   },
   row: {
     flexDirection: "row",
