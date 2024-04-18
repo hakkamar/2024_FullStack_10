@@ -1,7 +1,6 @@
-//import { SafeAreaView, View, FlatList } from "react-native";
-import { FlatList } from "react-native";
-//import Text from "./Text";
-//import styles from "./styles";
+import { FlatList, View } from "react-native";
+
+import styles from "./styles";
 
 import Item from "./RepositoryItem";
 
@@ -52,11 +51,13 @@ const repositories = [
   },
 ];
 
+const ItemSeparator = () => <View style={styles.separator} />;
+
 const RepositoryList = () => {
   return (
     <FlatList
       data={repositories}
-      //ItemSeparatorComponent={ItemSeparator}
+      ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item }) => <Item item={item} />}
       keyExtractor={(item) => item.id}
     />

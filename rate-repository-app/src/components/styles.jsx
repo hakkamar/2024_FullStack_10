@@ -1,7 +1,9 @@
 import {
   StyleSheet,
+  Platform,
   //StatusBar,
 } from "react-native";
+//import Constants from "expo-constants";
 
 import theme from "../theme";
 
@@ -10,13 +12,13 @@ const styles = StyleSheet.create({
     height: 10,
   },
   appBar: {
-    paddingTop: 10,
+    paddingTop: Platform.select({
+      android: 24,
+      ios: 24,
+      default: 24,
+    }),
     paddingBottom: 10,
     paddingLeft: 10,
-
-    //padding: 10,
-    //alignItems: "center",
-    //backgroundColor: "black",
     backgroundColor: "#24292e",
     marginTop: 20,
   },
@@ -30,26 +32,11 @@ const styles = StyleSheet.create({
     display: "flex",
     gap: 5,
     flexDirection: "column",
-    //justifyContent: "space-between",
-    //resize: "both",
     overflow: "auto",
     backgroundColor: "white",
-    //border: "solid",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
-    /*
-    display: "flex",
-    backgroundColor: "white",
-    //backgroundColor: "lightgray",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    flexGrow: 0,
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    */
   },
   itemB: {
     maxWidth: 50,
@@ -63,7 +50,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: 100,
     height: 40,
-    borderRadius: 10,
+    borderRadius: theme.roundness,
   },
   button: {
     color: "white",
@@ -74,14 +61,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "auto",
     height: "auto",
-    borderRadius: 10,
+    borderRadius: theme.roundness,
     fontSize: theme.fontSizes.subheading,
-    //
     borderWidth: 1,
     borderColor: "darkblue",
-    //width: 104, // +
-    alignItems: "center", // +
-    //padding: 8, // +
+    alignItems: "center",
   },
   formText: {
     color: theme.colors.textPrimary,
@@ -91,7 +75,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "auto",
     height: "auto",
-    borderRadius: 10,
+    borderRadius: theme.roundness,
     fontSize: theme.fontSizes.subheading,
     alignItems: "center",
   },
@@ -104,7 +88,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "auto",
     height: "auto",
-    borderRadius: 10,
+    borderRadius: theme.roundness,
     fontSize: theme.fontSizes.subheading,
     alignItems: "center",
   },
@@ -121,7 +105,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     width: "auto",
     height: "auto",
-    borderRadius: 10,
+    borderRadius: theme.roundness,
     border: "solid",
   },
 
@@ -158,12 +142,12 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 50,
     height: 50,
-    borderRadius: 10,
+    borderRadius: theme.roundness,
   },
   logo: {
     width: 66,
     height: 58,
-    borderRadius: 10,
+    borderRadius: theme.roundness,
   },
 });
 

@@ -1,10 +1,11 @@
-//import { Appbar } from "react-native-paper";
 import { ScrollView, View, Pressable } from "react-native";
 import { Link } from "react-router-native";
 import Text from "./Text";
 //import Constants from "expo-constants";
 
 import styles from "./styles";
+
+//console.log("Constants.statusBarHeight", Constants.statusBarHeight);
 
 const MyAppBar = () => {
   return (
