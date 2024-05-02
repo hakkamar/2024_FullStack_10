@@ -1,3 +1,17 @@
+import { useQuery } from "@apollo/client";
+import { GET_REPOSITORIES } from "../graphqL/queries";
+
+const useRepositories = () => {
+  const { data, ...result } = useQuery(GET_REPOSITORIES, {
+    fetchPolicy: "cache-and-network",
+  });
+
+  return { repositories: data ? data.repositories : undefined, ...result };
+};
+
+export default useRepositories;
+
+/*
 import { useState, useEffect } from "react";
 
 const useRepositories = () => {
@@ -24,3 +38,4 @@ const useRepositories = () => {
 };
 
 export default useRepositories;
+*/

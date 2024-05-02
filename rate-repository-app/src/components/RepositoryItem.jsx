@@ -12,7 +12,7 @@ function muotoile(luku) {
 const Item = ({ item }) => {
   return (
     <Pressable key={item.id} onPress={() => console.log("Item press")}>
-      <View style={styles.item}>
+      <View testID="repositoryItem" style={styles.item}>
         <View style={styles.table}>
           <View style={styles.rowVasen}>
             <Image

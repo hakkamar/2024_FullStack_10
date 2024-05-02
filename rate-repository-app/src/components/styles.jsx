@@ -140,13 +140,13 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     borderRadius: theme.roundness,
   },
   logo: {
-    width: 66,
-    height: 58,
+    width: 55,
+    height: 55,
     borderRadius: theme.roundness,
   },
 });
