@@ -15,7 +15,7 @@ class AuthStorage {
     // Add the access token to the storage
     try {
       const jsonValue = JSON.stringify(accessToken);
-      await AsyncStorage.setItem(`${this.namespace}:token`, jsonValue);
+      return await AsyncStorage.setItem(`${this.namespace}:token`, jsonValue);
     } catch (e) {
       // save error
       console.log("Error setAccessToken", accessToken);
@@ -24,7 +24,7 @@ class AuthStorage {
 
   async removeAccessToken() {
     // Remove the access token from the storage
-    await AsyncStorage.removeItem(`${this.namespace}:token`);
+    return await AsyncStorage.removeItem(`${this.namespace}:token`);
   }
 }
 

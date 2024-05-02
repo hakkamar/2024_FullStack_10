@@ -34,6 +34,7 @@ const MyAppBar = () => {
   const signOut = async () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
+    // Navigate vielä tähän?
   };
 
   return (

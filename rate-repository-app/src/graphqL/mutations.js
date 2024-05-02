@@ -4,6 +4,11 @@ export const SIGN_IN = gql`
   mutation signIn($credentials: AuthenticateInput) {
     authenticate(credentials: $credentials) {
       accessToken
+      user {
+        id
+        username
+        createdAt
+      }
     }
   }
 `;
