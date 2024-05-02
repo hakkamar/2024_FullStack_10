@@ -6,13 +6,17 @@ import Text from "./Text";
 import styles from "./styles";
 import theme from "../theme";
 
+import useSignIn from "../hooks/useSignIn";
+
+import { useNavigate } from "react-router-native";
+
 const initialValues = {
-  userName: "",
+  username: "",
   password: "",
 };
 
 const validationSchema = yup.object().shape({
-  userName: yup
+  username: yup
     .string()
     .min(3, "userName must be greater or equal to 3")
     .required("userName is required"),
@@ -32,15 +36,15 @@ const SignupForm = ({ onSubmit }) => {
   return (
     <View style={styles.form}>
       <TextInput
-        style={formik.errors.userName ? styles.formErrorText : styles.formText}
-        id="userName"
-        placeholder="userName"
-        onChangeText={formik.handleChange("userName")}
-        value={formik.values.userName}
+        style={formik.errors.username ? styles.formErrorText : styles.formText}
+        id="username"
+        placeholder="username"
+        onChangeText={formik.handleChange("username")}
+        value={formik.values.username}
       />
-      {formik.touched.userName && formik.errors.userName && (
+      {formik.touched.username && formik.errors.username && (
         <Text style={{ color: theme.colors.errorColor }}>
-          {formik.errors.userName}
+          {formik.errors.username}
         </Text>
       )}
       <TextInput
@@ -64,8 +68,21 @@ const SignupForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-  const onSubmit = (values) => {
-    alert(JSON.stringify(values, null, 2));
+  const [signIn] = useSignIn();
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (values) => {
+    //alert(JSON.stringify(values, null, 2));
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+
+      navigate("/");
+    } catch (e) {
+      console.log("ERROR SignIn", e);
+    }
   };
 
   return <SignupForm onSubmit={onSubmit} />;

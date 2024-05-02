@@ -1,8 +1,9 @@
-/*
 import { gql } from "@apollo/client";
-//
-// It is recommended to use fragments in queries to avoid retyping the same fields over and over again.
-//
 
-
-*/
+export const SIGN_IN = gql`
+  mutation signIn($credentials: AuthenticateInput) {
+    authenticate(credentials: $credentials) {
+      accessToken
+    }
+  }
+`;
