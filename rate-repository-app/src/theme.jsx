@@ -13,6 +13,8 @@ const theme = {
     fbBrightGray: "#E9EBEE",
     fbSpanishGray: "#90949C",
     fbDimGray: "#616771",
+    borderColor: "#aab2bb",
+    borderErrorColor: "#d73a4a",
   },
   fontSizes: {
     body: 14,

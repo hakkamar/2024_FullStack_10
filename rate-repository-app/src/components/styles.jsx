@@ -27,6 +27,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 1,
   },
+  signInContainer: {
+    backgroundColor: "white",
+    padding: 15,
+  },
+  signInFieldContainer: {
+    marginBottom: 15,
+  },
   item: {
     flex: 1,
     display: "flex",
@@ -41,6 +48,37 @@ const styles = StyleSheet.create({
   itemB: {
     maxWidth: 50,
     flex: 1,
+  },
+  errorText: {
+    marginTop: 5,
+    color: theme.colors.errorColor,
+  },
+  errorBorder: {
+    borderColor: theme.colors.borderErrorColor,
+  },
+  textInput: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderWidth: 1,
+    borderStyle: "solid",
+    fontSize: theme.fontSizes.body,
+    fontFamily: theme.fonts.main,
+    color: theme.colors.textPrimary,
+    borderRadius: theme.roundness,
+    borderColor: theme.borderColor,
+  },
+  buttonContainer: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    minWidth: 64,
+    alignItems: "center",
+    justifyContent: "center",
+    //backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.fbBlue,
+    borderRadius: theme.roundness,
+  },
+  text: {
+    color: "white",
   },
   buttonLikeText: {
     color: "white",
