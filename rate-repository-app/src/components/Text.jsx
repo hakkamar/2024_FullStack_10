@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
   colorTextSecondary: {
     color: theme.colors.textSecondary,
   },
+  colorTextBlue: {
+    color: theme.colors.fbBlue,
+  },
   colorPrimary: {
     color: theme.colors.primary,
   },
@@ -21,6 +24,10 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  fontWeightExtra: {
+    //fontWeight: theme.fontWeights.extra,
+    fontSize: 25,
+  },
 });
 
 const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
@@ -28,8 +35,10 @@ const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
     styles.text,
     color === "textSecondary" && styles.colorTextSecondary,
     color === "primary" && styles.colorPrimary,
+    color === "blue" && styles.colorTextBlue,
     fontSize === "subheading" && styles.fontSizeSubheading,
     fontWeight === "bold" && styles.fontWeightBold,
+    fontWeight === "extra" && styles.fontWeightExtra,
     style,
   ];
 

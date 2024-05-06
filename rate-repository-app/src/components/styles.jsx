@@ -8,8 +8,73 @@ import {
 import theme from "../theme";
 
 const styles = StyleSheet.create({
+  // tästä
+  topContainer: {
+    flexDirection: "row",
+    marginBottom: 15,
+  },
+  avatarContainer: {
+    flexGrow: 0,
+    marginRight: 20,
+  },
+  avatar: {
+    width: 45,
+    height: 45,
+    borderRadius: theme.roundness,
+  },
+  contentContainer: {
+    flexGrow: 1,
+    flexShrink: 1,
+  },
+  descriptionText: {
+    flexGrow: 1,
+  },
+  languageContainer: {
+    marginTop: 10,
+    flexDirection: "row",
+  },
+  languageText: {
+    color: "white",
+    backgroundColor: theme.colors.primary,
+    borderRadius: theme.roundness,
+    flexGrow: 0,
+    paddingVertical: 3,
+    paddingHorizontal: 6,
+  },
+  bottomContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  countItem: {
+    flexGrow: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 15,
+  },
+  countItemCount: {
+    marginBottom: 5,
+  },
+  // tähän
+  reviewContainer: {
+    flexGrow: 0,
+    marginRight: 5,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderColor: theme.colors.fbBlue,
+    borderWidth: 3,
+    borderStyle: "solid",
+  },
+  ratingContainer: {
+    flexGrow: 0,
+    marginRight: 20,
+  },
   separator: {
     height: 10,
+  },
+  separator2: {
+    height: 10,
+    paddingTop: 250,
   },
   appBar: {
     paddingTop: Platform.select({
@@ -26,6 +91,20 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.mainBackground,
     flexGrow: 1,
     flexShrink: 1,
+  },
+  containerWhite: {
+    backgroundColor: "white",
+    //backgroundColor: "red",
+    flexGrow: 1,
+    flexShrink: 1,
+    padding: 5,
+  },
+  containerRepo: {
+    //backgroundColor: "white",
+    backgroundColor: "blue",
+    flexGrow: 1,
+    flexShrink: 1,
+    padding: 5,
   },
   signInContainer: {
     backgroundColor: "white",
