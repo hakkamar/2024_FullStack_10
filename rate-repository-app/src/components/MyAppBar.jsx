@@ -38,7 +38,6 @@ const MyAppBar = () => {
   const signOut = async () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
-    // Navigate vielä tähän?
     navigate("/", { replace: true });
   };
 
@@ -84,19 +83,34 @@ const MyAppBar = () => {
                 </Text>
               </Pressable>
             ) : (
-              <Pressable
-                onPress={() => console.log("painettu AppBar - SignIn")}
-              >
-                <Link to="/signin">
-                  <Text
-                    style={{ color: "white" }}
-                    fontWeight="bold"
-                    fontSize="subheading"
-                  >
-                    Sign in
-                  </Text>
-                </Link>
-              </Pressable>
+              <>
+                <Pressable
+                  onPress={() => console.log("painettu AppBar - SignIn")}
+                >
+                  <Link to="/signin">
+                    <Text
+                      style={{ color: "white" }}
+                      fontWeight="bold"
+                      fontSize="subheading"
+                    >
+                      Sign in
+                    </Text>
+                  </Link>
+                </Pressable>
+                <Pressable
+                  onPress={() => console.log("painettu AppBar - SignUp")}
+                >
+                  <Link to="/signup">
+                    <Text
+                      style={{ color: "white" }}
+                      fontWeight="bold"
+                      fontSize="subheading"
+                    >
+                      Sign up
+                    </Text>
+                  </Link>
+                </Pressable>
+              </>
             )}
           </View>
         </View>
