@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
   },
   ratingContainer: {
-    flexGrow: 0,
+    flexGrow: 1,
+    flexShrink: 1,
     marginRight: 20,
   },
   separator: {

@@ -6,6 +6,7 @@ import MyAppBar from "./MyAppBar";
 import RepositoryList from "./RepositoryList";
 import Repository from "./Repository";
 import SignIn from "./SignIn";
+import ReviewFormi from "./ReviewFormi";
 
 import styles from "./styles";
 //import Text from "./Text";
@@ -17,6 +18,7 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<RepositoryList />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/createreview" element={<ReviewFormi />} />
         <Route path="/:id" element={<Repository />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

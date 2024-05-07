@@ -12,3 +12,32 @@ export const SIGN_IN = gql`
     }
   }
 `;
+
+export const CREATE_REVIEW = gql`
+  mutation createReview($review: CreateReviewInput) {
+    createReview(review: $review) {
+      repositoryId
+      rating
+      text
+      user {
+        id
+        username
+        createdAt
+        reviewCount
+        reviews {
+          edges {
+            node {
+              id
+              rating
+              repositoryId
+              text
+              user {
+                username
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

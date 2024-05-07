@@ -52,9 +52,8 @@ const Repository = () => {
   }
 
   return (
-    //<View style={styles.containerWhite}>
     <View style={styles.container}>
-      <View style={styles.topContainer}>
+      <View style={styles.contentContainer}>
         <Item item={repository} />
       </View>
       {repository.url && (

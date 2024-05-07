@@ -3,6 +3,8 @@ import { Link } from "react-router-native";
 import Text from "./Text";
 //import Constants from "expo-constants";
 
+import { useNavigate } from "react-router-native";
+
 import styles from "./styles";
 
 //console.log("Constants.statusBarHeight", Constants.statusBarHeight);
@@ -16,6 +18,8 @@ import { useApolloClient } from "@apollo/client";
 const MyAppBar = () => {
   const authStorage = useAuthStorage();
   const apolloClient = useApolloClient();
+
+  const navigate = useNavigate();
 
   const { data, error, loading } = useQuery(ME, {
     fetchPolicy: "cache-and-network",
@@ -35,6 +39,7 @@ const MyAppBar = () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
     // Navigate vielä tähän?
+    navigate("/", { replace: true });
   };
 
   return (
@@ -53,6 +58,21 @@ const MyAppBar = () => {
                 </Text>
               </Link>
             </Pressable>
+            {juuseri ? (
+              <Pressable
+                onPress={() => console.log("painettu AppBar - create a review")}
+              >
+                <Link to="/createreview">
+                  <Text
+                    style={{ color: "white" }}
+                    fontWeight="bold"
+                    fontSize="subheading"
+                  >
+                    Create a review
+                  </Text>
+                </Link>
+              </Pressable>
+            ) : null}
             {juuseri ? (
               <Pressable onPress={() => signOut()}>
                 <Text
