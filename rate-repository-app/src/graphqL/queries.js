@@ -48,9 +48,42 @@ export const GET_REPOSITORY_BY_ID = gql`
   }
 `;
 
-export const GET_REPOSITORIES = gql`
+export const GET_REPOSITORIES_ILMAN_LAJITTELUA = gql`
   query {
     repositories {
+      totalCount
+      edges {
+        node {
+          id
+          name
+          ownerName
+          createdAt
+          fullName
+          reviewCount
+          ratingAverage
+          forksCount
+          stargazersCount
+          description
+          language
+          ownerAvatarUrl
+        }
+        cursor
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+    }
+  }
+`;
+export const GET_REPOSITORIES = gql`
+  query getRepot(
+    $orderBy: AllRepositoriesOrderBy
+    $orderDirection: OrderDirection
+  ) {
+    repositories(orderBy: $orderBy, orderDirection: $orderDirection) {
       totalCount
       edges {
         node {
