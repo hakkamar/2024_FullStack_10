@@ -1,6 +1,8 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState, useRef } from "react";
 
+import styles from "./styles";
+
 const Pikkeri = ({ setHakuEhdot }) => {
   const [valinta, setValinta] = useState("Latest");
 
@@ -21,6 +23,7 @@ const Pikkeri = ({ setHakuEhdot }) => {
 
   return (
     <Picker
+      style={styles.textInput}
       ref={pickerRef}
       selectedValue={valinta}
       onValueChange={(itemValue, _itemIndex) => asetaValinta(itemValue)}

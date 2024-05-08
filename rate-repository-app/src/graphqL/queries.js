@@ -78,12 +78,50 @@ export const GET_REPOSITORIES_ILMAN_LAJITTELUA = gql`
     }
   }
 `;
-export const GET_REPOSITORIES = gql`
+export const GET_REPOSITORIES_BY_SEARCH = gql`
   query getRepot(
     $orderBy: AllRepositoriesOrderBy
     $orderDirection: OrderDirection
   ) {
     repositories(orderBy: $orderBy, orderDirection: $orderDirection) {
+      totalCount
+      edges {
+        node {
+          id
+          name
+          ownerName
+          createdAt
+          fullName
+          reviewCount
+          ratingAverage
+          forksCount
+          stargazersCount
+          description
+          language
+          ownerAvatarUrl
+        }
+        cursor
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+    }
+  }
+`;
+export const GET_REPOSITORIES = gql`
+  query getRepot(
+    $orderBy: AllRepositoriesOrderBy
+    $orderDirection: OrderDirection
+    $searchKeyword: String
+  ) {
+    repositories(
+      orderBy: $orderBy
+      orderDirection: $orderDirection
+      searchKeyword: $searchKeyword
+    ) {
       totalCount
       edges {
         node {
