@@ -1,9 +1,10 @@
 import { View } from "react-native";
 
+import Text from "./Text";
+
 import { format } from "date-fns";
 
 import styles from "./styles";
-import Text from "./Text";
 
 let juuseri = "";
 

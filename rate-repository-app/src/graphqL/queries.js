@@ -171,6 +171,7 @@ export const MY_REVIEWS = gql`
           node {
             id
             repository {
+              id
               fullName
             }
             createdAt

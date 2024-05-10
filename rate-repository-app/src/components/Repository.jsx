@@ -39,9 +39,7 @@ const Repository = () => {
           <View style={styles.containerWhite}>
             <Button onPress={onPress}>Open in GitHub</Button>
           </View>
-        ) : (
-          <Text>...</Text>
-        )}
+        ) : null}
       </View>
       <View style={styles.separator}></View>
       <View>
@@ -49,9 +47,7 @@ const Repository = () => {
           <View style={styles.contentContainer}>
             <SingleRepository repositoryReviews={repositoryReviews} />
           </View>
-        ) : (
-          <Text>---</Text>
-        )}
+        ) : null}
       </View>
     </View>
   );

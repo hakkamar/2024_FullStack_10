@@ -6,12 +6,12 @@ const useMyReviews = () => {
     includeReviews: true,
   };
 
-  const { data, ...result } = useQuery(MY_REVIEWS, {
+  const { data, refetch, ...result } = useQuery(MY_REVIEWS, {
     variables: variables,
     fetchPolicy: "cache-and-network",
   });
 
-  return { reviews: data ? data.me.reviews : undefined, ...result };
+  return { reviews: data ? data.me.reviews : undefined, refetch, ...result };
 };
 
 export default useMyReviews;

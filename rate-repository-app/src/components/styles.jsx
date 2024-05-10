@@ -164,6 +164,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.fbBlue,
     borderRadius: theme.roundness,
   },
+  buttonDelete: {
+    backgroundColor: theme.colors.errorColor,
+  },
   text: {
     color: "white",
   },
