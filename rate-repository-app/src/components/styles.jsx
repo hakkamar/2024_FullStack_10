@@ -64,6 +64,13 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.fbBlue,
     borderWidth: 3,
     borderStyle: "solid",
+    alignItems: "center",
+  },
+  reviewText: {
+    flexGrow: 1,
+    alignItems: "center",
+    marginTop: 5,
+    color: theme.colors.fbBlue,
   },
   ratingContainer: {
     flexGrow: 1,

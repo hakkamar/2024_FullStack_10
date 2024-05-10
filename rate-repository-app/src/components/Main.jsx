@@ -8,6 +8,7 @@ import Repository from "./Repository";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import ReviewFormi from "./ReviewFormi";
+import MyReviews from "./MyReviews";
 
 import styles from "./styles";
 //import Text from "./Text";
@@ -21,6 +22,7 @@ const Main = () => {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/createreview" element={<ReviewFormi />} />
+        <Route path="/myreviews" element={<MyReviews />} />
         <Route path="/:id" element={<Repository />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

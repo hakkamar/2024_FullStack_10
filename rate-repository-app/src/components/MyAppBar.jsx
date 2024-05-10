@@ -58,19 +58,36 @@ const MyAppBar = () => {
               </Link>
             </Pressable>
             {juuseri ? (
-              <Pressable
-                onPress={() => console.log("painettu AppBar - create a review")}
-              >
-                <Link to="/createreview">
-                  <Text
-                    style={{ color: "white" }}
-                    fontWeight="bold"
-                    fontSize="subheading"
-                  >
-                    Create a review
-                  </Text>
-                </Link>
-              </Pressable>
+              <>
+                <Pressable
+                  onPress={() =>
+                    console.log("painettu AppBar - create a review")
+                  }
+                >
+                  <Link to="/createreview">
+                    <Text
+                      style={{ color: "white" }}
+                      fontWeight="bold"
+                      fontSize="subheading"
+                    >
+                      Create a review
+                    </Text>
+                  </Link>
+                </Pressable>
+                <Pressable
+                  onPress={() => console.log("painettu AppBar - MY reviews")}
+                >
+                  <Link to="/myreviews">
+                    <Text
+                      style={{ color: "white" }}
+                      fontWeight="bold"
+                      fontSize="subheading"
+                    >
+                      My reviews
+                    </Text>
+                  </Link>
+                </Pressable>
+              </>
             ) : null}
             {juuseri ? (
               <Pressable onPress={() => signOut()}>

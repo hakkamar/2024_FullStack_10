@@ -159,3 +159,26 @@ export const ME = gql`
     }
   }
 `;
+
+export const MY_REVIEWS = gql`
+  query MunReviewit($includeReviews: Boolean = false) {
+    me {
+      id
+      username
+      createdAt
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            id
+            repository {
+              fullName
+            }
+            createdAt
+            rating
+            text
+          }
+        }
+      }
+    }
+  }
+`;

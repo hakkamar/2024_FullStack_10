@@ -3,7 +3,7 @@ import { useMatch } from "react-router-native";
 import { View } from "react-native";
 import * as Linking from "expo-linking";
 
-import SingleRepository from "./ReviewItem";
+import SingleRepository from "./SingleRepository";
 
 import useRepository from "../hooks/useRepository";
 
@@ -32,21 +32,27 @@ const Repository = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.contentContainer}>
         <Item item={repository} />
+        {repository.url ? (
+          <View style={styles.containerWhite}>
+            <Button onPress={onPress}>Open in GitHub</Button>
+          </View>
+        ) : (
+          <Text>...</Text>
+        )}
       </View>
-      {repository.url && (
-        <View style={styles.contentContainer}>
-          <Button onPress={onPress}>Open in GitHub</Button>
-          <View style={styles.separator} />
-        </View>
-      )}
-      {repositoryReviews && (
-        <View style={styles.contentContainer}>
-          <SingleRepository repositoryReviews={repositoryReviews} />
-        </View>
-      )}
+      <View style={styles.separator}></View>
+      <View>
+        {repositoryReviews ? (
+          <View style={styles.contentContainer}>
+            <SingleRepository repositoryReviews={repositoryReviews} />
+          </View>
+        ) : (
+          <Text>---</Text>
+        )}
+      </View>
     </View>
   );
 };
