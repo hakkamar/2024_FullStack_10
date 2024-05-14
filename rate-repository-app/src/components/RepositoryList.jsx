@@ -26,7 +26,7 @@ export class RepositoryListContainer extends React.Component {
   };
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, onEndReach } = this.props;
     const repositoryNodes = repositories
       ? repositories.edges.map((edge) => edge.node)
       : [];
@@ -38,6 +38,8 @@ export class RepositoryListContainer extends React.Component {
         ListHeaderComponent={this.renderHeader}
         renderItem={({ item }) => <Item item={item} />}
         keyExtractor={(item) => item.id}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={1}
       />
     );
   }
@@ -50,10 +52,13 @@ const RepositoryList = () => {
   const [value, setValue] = useState("");
   const [searchKeyword] = useDebounce(value, 500);
 
-  const { repositories } = useRepositories(
+  const first = 10;
+
+  const { repositories, fetchMore } = useRepositories(
     orderBy,
     orderDirection,
-    searchKeyword
+    searchKeyword,
+    first
   );
 
   const setHakuEhdot = (itemValue) => {
@@ -69,9 +74,14 @@ const RepositoryList = () => {
     }
   };
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
     <RepositoryListContainer
       repositories={repositories}
+      onEndReach={onEndReach}
       setValue={setValue}
       value={value}
       setHakuEhdot={setHakuEhdot}

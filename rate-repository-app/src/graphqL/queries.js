@@ -1,18 +1,5 @@
 import { gql } from "@apollo/client";
 
-/*
-import { REPOSITORY_DETAILS } from "./fragments";
-
-export const GET_REPOSITORIES = gql`
-  query {
-    repositories {
-      ${REPOSITORY_DETAILS}
-      ...RepositoryDetails
-    }    
-  }
-`;
-*/
-
 export const GET_REPOSITORY_BY_ID = gql`
   query getRepo($id: ID!) {
     repository(id: $id) {
@@ -48,79 +35,63 @@ export const GET_REPOSITORY_BY_ID = gql`
   }
 `;
 
-export const GET_REPOSITORIES_ILMAN_LAJITTELUA = gql`
-  query {
-    repositories {
-      totalCount
-      edges {
-        node {
-          id
-          name
-          ownerName
-          createdAt
-          fullName
-          reviewCount
-          ratingAverage
-          forksCount
-          stargazersCount
-          description
-          language
-          ownerAvatarUrl
+export const GET_REVIEWS_BY_ID = gql`
+  query getReviews($id: ID!, $first: Int, $after: String) {
+    repository(id: $id) {
+      id
+      fullName
+      url
+      name
+      ownerName
+      createdAt
+      fullName
+      reviewCount
+      ratingAverage
+      forksCount
+      stargazersCount
+      description
+      language
+      ownerAvatarUrl
+      reviews(first: $first, after: $after) {
+        totalCount
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+          cursor
         }
-        cursor
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
+        pageInfo {
+          startCursor
+          endCursor
+          hasNextPage
+          hasPreviousPage
+        }
       }
     }
   }
 `;
-export const GET_REPOSITORIES_BY_SEARCH = gql`
-  query getRepot(
-    $orderBy: AllRepositoriesOrderBy
-    $orderDirection: OrderDirection
-  ) {
-    repositories(orderBy: $orderBy, orderDirection: $orderDirection) {
-      totalCount
-      edges {
-        node {
-          id
-          name
-          ownerName
-          createdAt
-          fullName
-          reviewCount
-          ratingAverage
-          forksCount
-          stargazersCount
-          description
-          language
-          ownerAvatarUrl
-        }
-        cursor
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-    }
-  }
-`;
+
 export const GET_REPOSITORIES = gql`
   query getRepot(
     $orderBy: AllRepositoriesOrderBy
     $orderDirection: OrderDirection
     $searchKeyword: String
+    $first: Int
+    $after: String
   ) {
     repositories(
       orderBy: $orderBy
       orderDirection: $orderDirection
       searchKeyword: $searchKeyword
+      first: $first
+      after: $after
     ) {
       totalCount
       edges {

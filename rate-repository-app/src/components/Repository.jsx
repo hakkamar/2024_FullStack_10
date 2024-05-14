@@ -5,7 +5,8 @@ import * as Linking from "expo-linking";
 
 import SingleRepository from "./SingleRepository";
 
-import useRepository from "../hooks/useRepository";
+//import useRepository from "../hooks/useRepository";
+import useReviews from "../hooks/useReviews";
 
 import Text from "./Text";
 
@@ -21,13 +22,18 @@ const Repository = () => {
     Linking.openURL(repository.url);
   };
 
-  const { repository, ...result } = useRepository(match.params.id);
+  const first = 10;
+  const { repository, loading, fetchMore } = useReviews(match.params.id, first);
+
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   const repositoryReviews = repository
     ? repository.reviews.edges.map((edge) => edge.node)
     : [];
 
-  if (result?.loading) {
+  if (loading) {
     return <Text>loading...</Text>;
   }
 
@@ -45,7 +51,10 @@ const Repository = () => {
       <View>
         {repositoryReviews ? (
           <View style={styles.contentContainer}>
-            <SingleRepository repositoryReviews={repositoryReviews} />
+            <SingleRepository
+              repositoryReviews={repositoryReviews}
+              onEndReach={onEndReach}
+            />
           </View>
         ) : null}
       </View>

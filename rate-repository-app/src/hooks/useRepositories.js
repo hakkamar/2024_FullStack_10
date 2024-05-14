@@ -1,48 +1,40 @@
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphqL/queries";
 
-const useRepositories = (orderBy, orderDirection, searchKeyword) => {
+const useRepositories = (orderBy, orderDirection, searchKeyword, first) => {
   let variables = {
     orderBy: orderBy,
     orderDirection: orderDirection,
     searchKeyword: searchKeyword,
+    first: first,
   };
 
-  const { data, ...result } = useQuery(GET_REPOSITORIES, {
+  const { data, loading, fetchMore, ...result } = useQuery(GET_REPOSITORIES, {
     variables: variables,
     fetchPolicy: "cache-and-network",
   });
 
-  return { repositories: data ? data.repositories : undefined, ...result };
-};
+  const handleFetchMore = () => {
+    const canFetchMore = !loading && data?.repositories.pageInfo.hasNextPage;
 
-export default useRepositories;
+    if (!canFetchMore) {
+      return;
+    }
 
-/*
-import { useState, useEffect } from "react";
-
-const useRepositories = () => {
-  const [repositories, setRepositories] = useState();
-  const [loading, setLoading] = useState(false);
-
-  const fetchRepositories = async () => {
-    setLoading(true);
-
-    // Replace the IP address part with your own IP address!
-    //exp://192.168.0.7:8081
-    const response = await fetch("http://192.168.0.7:5000/api/repositories");
-    const json = await response.json();
-
-    setLoading(false);
-    setRepositories(json);
+    fetchMore({
+      variables: {
+        after: data.repositories.pageInfo.endCursor,
+        ...variables,
+      },
+    });
   };
 
-  useEffect(() => {
-    fetchRepositories();
-  }, []);
-
-  return { repositories, loading, refetch: fetchRepositories };
+  return {
+    repositories: data?.repositories,
+    fetchMore: handleFetchMore,
+    loading,
+    ...result,
+  };
 };
 
 export default useRepositories;
-*/

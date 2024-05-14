@@ -11,19 +11,15 @@ const RepositoryInfo = ({ repository }) => {
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const SingleRepository = (repositoryReviews) => {
-  //console.log("repositoryReviews", repositoryReviews);
-  //console.log("repositoryReviews.repositoryReviews",repositoryReviews.repositoryReviews);
-
+const SingleRepository = ({ repositoryReviews, onEndReach }) => {
   return (
     <FlatList
-      data={repositoryReviews.repositoryReviews}
+      data={repositoryReviews}
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
       ItemSeparatorComponent={ItemSeparator}
-      //ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
-      //ListHeaderComponent={() => (<RepositoryInfo repository={repositoryReviews.repositoryReviews} />)}
-      // ...
+      onEndReached={onEndReach()}
+      onEndReachedThreshold={1}
     />
   );
 };

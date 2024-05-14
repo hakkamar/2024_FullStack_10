@@ -1,14 +1,9 @@
-import {
-  StyleSheet,
-  Platform,
-  //StatusBar,
-} from "react-native";
+import { StyleSheet, Platform } from "react-native";
 //import Constants from "expo-constants";
 
 import theme from "../theme";
 
 const styles = StyleSheet.create({
-  // tästä
   topContainer: {
     flexDirection: "row",
     marginBottom: 15,
